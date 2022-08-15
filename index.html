@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ID Card</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="src/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="src/css/style.min.css">
+    <script src="src/js/jquery-3.6.0.min.js"></script>
+    <script src="src/js/dom-to-image.js"></script>
+</head>
+<body>
+    <button id="aside-toggle">
+        <i class="bi bi-eye" style="font-size: 1.5rem;"></i>
+    </button>
+    <aside>
+        <div id="theme-settings">
+            <div>
+                <span>Select Theme</span>
+                <select name="theme" id="theme">
+                    <option value="1" selected>Theme A</option>
+                    <option value="2">Theme B</option>
+                </select>
+            </div>
+            <div>
+                <span>Select Color</span>
+                <select name="color" id="color">
+                    <option value="blue" selected>Blue</option>
+                    <option value="green">Green</option>
+                    <option value="maroon">Maroon</option>
+                    <option value="orange">Orange</option>
+                    <option value="purple">Purple</option>
+                    <option value="teal">Teal</option>
+                    <option value="gray">Gray</option>
+                </select>
+            </div>
+        </div>
+        <form id="data-form">
+            <label for="org">School/Organization</label>
+            <input type="text" data-bind="org" placeholder="Enter your School/Company/Organization">
+
+            <label for="pic">ID Photo</label>
+            <div class="upload">
+                Upload Image
+                <input type="file" data-bind="pic" placeholder="images/id.jpg" accept="image/*">
+            </div>
+
+            <label for="name">Fullname</label>
+            <input type="text" data-bind="name" placeholder="Juan Dela Cruz">
+
+            <label for="pos">Course/Position</label>
+            <input type="text" data-bind="pos" placeholder="BS in Information Technology">
+
+            <label for="uid">ID Number</label>
+            <input type="text" data-bind="uid" placeholder="2022-000000">
+
+            <div>
+                <input type="checkbox" id="sign" checked>
+                <label for="sign">with signature</label>
+            </div>
+
+            <label for="sig">Signature</label>
+            <div class="upload" id="sig">
+                Upload Image
+                <input type="file" data-bind="sig" placeholder="images/signature.png" accept="image/*">
+            </div>
+
+            <button type="submit">Download</button>
+        </form>
+    </aside>
+    <main>
+        <div id="wrapper">
+            <card theme="1" color="blue">
+                <div class="design">
+                    <div class="c"></div>
+                    <div class="d"></div>
+                    <div class="b"></div>
+                    <div class="a"></div>
+                </div>
+                <div class="org">
+                    <span class="title" data-get="org">School Name Sample School</span>
+                </div>
+                <div class="picture">
+                    <img src="images/id.jpg" alt="" data-get="pic">
+                </div>
+                
+                <div class="name">
+                    <img src="images/signature.png" alt="" class="sign" data-get="sig">
+                    <span data-get="name">Juan Dela Cruz</span>
+                </div>
+                <div class="course" data-get="pos">BS in Information Technology</div>
+                <div class="idno">I.D. <span data-get="uid">2022-000000</span></div>
+            </card>
+        </div>
+    </main>
+    <script src="src/js/index.js"></script>
+</body>
+</html>
